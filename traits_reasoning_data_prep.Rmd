@@ -1,0 +1,47 @@
+---
+title: "Personality Traits and Scientific Reasoning - Data Preparation"
+author: "Moin Syed"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+options(digits = 3)
+
+library(dplyr)
+
+```
+
+Before getting to the analysis we need to do some initial data prep work. 
+That is what is reported in this file. 
+
+## Initial Data Set-up
+
+This project will use a subset of the PSTEM dataset. First we will load that data file in from the project page, select the variables we need, and then save that as our working data file. 
+
+```{r create working data file}
+
+# loading in data from Box directory, changed to location outside of file
+# dat <- read.csv("PSTEM_Wave_1_WORKING_RAW_2022-02-02.csv")
+# names(dat)
+
+# just taking the variables I want
+# dat <- dat %>% dplyr::select(srs_1:srs_11, bfas_1:bfas_100, age, gender, race, year, socialclass, usborn)
+
+# saving this to project directory, change outside of file
+# write.csv(dat, "traits_reasoning_data_2025-07-18.csv", row.names = FALSE)
+
+# put this file on .gitignore so that it doesn't upload - don't want the raw demographics posted
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
