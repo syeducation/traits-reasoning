@@ -36,6 +36,13 @@ This project will use a subset of the PSTEM dataset. First we will load that dat
 
 ```
 
+```{r reading in working data}
+dat <- read.csv("Data/traits_reasoning_data_2025-07-18.csv")
+names(dat)
+
+```
+
+
 ## Including Plots
 
 You can also embed plots, for example:
