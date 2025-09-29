@@ -23,6 +23,7 @@ This project will use a subset of the PSTEM dataset. First we will load that dat
 ```{r create working data file}
 
 # loading in data from Box directory, changed to location outside of file
+# from: ~\Box\P-STEM\Data\Raw Data - DO NOT MODIFY\Wave 1
 # dat <- read.csv("PSTEM_Wave_1_WORKING_RAW_2022-02-02.csv")
 # names(dat)
 
@@ -37,7 +38,8 @@ This project will use a subset of the PSTEM dataset. First we will load that dat
 ```
 
 ```{r reading in working data}
-dat <- read.csv("Data/traits_reasoning_data_2025-07-18.csv")
+
+dat <- read.csv("Data\traits_reasoning_data_2025-07-18.csv")
 names(dat)
 
 ```

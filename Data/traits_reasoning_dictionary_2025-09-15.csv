@@ -1,0 +1,119 @@
+variable,label,scale,subscale,keying,type,value_labels
+participant_id,Participant ID,,,NA,factor,NA
+srs_1,"In a taste test, a researcher puts Brand A coffee in a cup with white tape on it and Brand B coffee in an identical cup with black tape on it. A lab assistant gives tasters one of the cups, while the researcher watches their facial expressions. True or False? The lab assistant should not watch the cups being filled.",scientific reasoning,,,factor,1 True 2 False
+srs_2,A researcher finds that American states with larger parks have fewer endangered species. True or False? These data show that increasing the size of American state parks will reduce the number of endangered species.,scientific reasoning,,,factor,1 True 2 False
+srs_3,A researcher has subjects put together a jigsaw puzzle either in a cold room with a loud radio or in a warm room with no radio. Subjects solve the puzzle more quickly in the warm room with no radio. True or False? The scientist cannot tell if the radio caused subjects to solve the puzzle more slowly.,scientific reasoning,,,factor,1 True 2 False
+srs_4,An education researcher wants to measure the general math ability of a sample of high-performing math students. All the students have taken classes in geometry and pre-calculus. True or False? The education researcher can measure general math ability by giving the students a geometry test.,scientific reasoning,,,factor,1 True 2 False
+srs_5,Two scientists test an anti-acne cream on teenagers with acne. Scientist A wants to give the cream to all the teenagers in the study. Scientist B wants to give the cream to half the teenagers and give a cream without anti-acne ingredients to the other half. True or False? Both ways of testing the cream are equally good.,scientific reasoning,,,factor,1 True 2 False
+srs_6,A researcher has a group of subjects play a competitive game. Each subject’s goal is to make money by buying and selling tokens. Subjects are paid a flat fee for participating in the experiment. True or False? The researcher can confidently state that the behavior in the experiment reflects real-life buying and selling behavior.,scientific reasoning,,,factor,1 True 2 False
+srs_7,"A randomly selected sample of Americans is surveyed about disease A before and after a 6-month media campaign about the disease. Mid-way through the media campaign, a famous celebrity dies of Disease A. The survey data indicate that knowledge of Disease A is higher after the campaign. True or False? The media campaign may not have increased knowledge of Disease A.",scientific reasoning,,,factor,1 True 2 False
+srs_8,"Subjects in an experiment must press a button whenever a blue dot flashes on their computer screen. At first, the task is easy for subjects. But as they continue to perform the task, they make more and more errors. True or False? The blue dot must flash more quickly as the task progresses.",scientific reasoning,,,factor,1 True 2 False
+srs_9,Researchers want to see whether a health intervention helps school children to lose weight. School children are sorted into either an intervention or control group. True or False? The researchers should assign the overweight children to the intervention group.,scientific reasoning,,,factor,1 True 2 False
+srs_10,A researcher develops a new method for measuring the surface tension of liquids. This method is more consistent than the old method. True or False? The new method must also be more accurate than the old method.,scientific reasoning,,,factor,1 True 2 False
+srs_11,"Two researchers are developing a survey to measure consumers’ feelings about customer service. Researcher A wants customers to rate their agreement with the statement “I am satisfied with customer service” on a 5-point scale, where 1 = strongly agree and 5 = strongly disagree. Researcher B wants customers to rate customer service on a 5-point scale, where 1 = not dissatisfied at all and 5 = highly dissatisfied. True or False? These questions are equally good for measuring how consumers feel about customer service",scientific reasoning,,,factor,1 True 2 False
+bfas_1,Seldom feel blue.,neuroticism,withdrawal,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_2,Am not interested in other people's problems.,agreeableness,compassion,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_3,Carry out my plans.,conscientiousness,industriousness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_4,Make friends easily.,extraversion,enthusiasm,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_5,Am quick to understand things.,openness,intellect,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_6,Get angry easily.,neuroticism,volatility,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_7,Respect authority.,agreeableness,politeness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_8,Leave my belongings around.,conscientiousness,orderliness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_9,Take charge.,extraversion,assertiveness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_10,Enjoy the beauty of nature.,openness,openness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_11,Am filled with doubts about things.,neuroticism,withdrawal,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_12,Feel others' emotions.,agreeableness,compassion,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_13,Waste my time.,conscientiousness,industriousness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_14,Am hard to get to know.,extraversion,enthusiasm,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_15,Have difficulty understanding abstract ideas.,openness,intellect,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_16,Rarely get irritated.,neuroticism,volatility,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_17,Believe that I am better than others.,agreeableness,politeness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_18,Like order.,conscientiousness,orderliness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_19,Have a strong personality.,extraversion,assertiveness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_20,Believe in the importance of art.,openness,openness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_21,Feel comfortable with myself.,neuroticism,withdrawal,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_22,Inquire about others' well-being.,agreeableness,compassion,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_23,Find it difficult to get down to work.,conscientiousness,industriousness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_24,Keep others at a distance.,extraversion,enthusiasm,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_25,Can handle a lot of information.,openness,intellect,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_26,Get upset easily.,neuroticism,volatility,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_27,Hate to seem pushy.,agreeableness,politeness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_28,Keep things tidy.,conscientiousness,orderliness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_29,Lack the talent for influencing people.,extraversion,assertiveness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_30,Love to reflect on things.,openness,openness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_31,Feel threatened easily.,neuroticism,withdrawal,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_32,Can't be bothered with other's needs.,agreeableness,compassion,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_33,Mess things up.,conscientiousness,industriousness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_34,Reveal little about myself.,extraversion,enthusiasm,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_35,Like to solve complex problems.,openness,intellect,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_36,Keep my emotions under control.,neuroticism,volatility,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_37,Take advantage of others.,agreeableness,politeness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_38,Follow a schedule.,conscientiousness,orderliness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_39,Know how to captivate people.,extraversion,assertiveness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_40,Get deeply immersed in music.,openness,openness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_41,Rarely feel depressed.,neuroticism,withdrawal,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_42,Sympathize with others' feelings.,agreeableness,compassion,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_43,Finish what I start.,conscientiousness,industriousness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_44,Warm up quickly to others.,extraversion,enthusiasm,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_45,Avoid philosophical discussions.,openness,intellect,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_46,Change my mood a lot.,neuroticism,volatility,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_47,Avoid imposing my will on others.,agreeableness,politeness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_48,Am not bothered by messy people.,conscientiousness,orderliness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_49,Wait for others to lead the way.,extraversion,assertiveness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_50,Do not like poetry.,openness,openness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_51,Worry about things.,neuroticism,withdrawal,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_52,Am indifferent to the feelings of others.,agreeableness,compassion,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_53,Don't put my mind on the task at hand.,conscientiousness,industriousness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_54,Rarely get caught up in the excitement.,extraversion,enthusiasm,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_55,Avoid difficult reading material.,openness,intellect,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_56,Rarely lose my composure.,neuroticism,volatility,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_57,Rarely put people under pressure.,agreeableness,politeness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_58,Want everything to be “just right.”,conscientiousness,orderliness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_59,See myself as a good leader.,extraversion,assertiveness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_60,Seldom notice the emotional aspects of painting and pictures.,openness,openness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_61,Am easily discouraged.,neuroticism,withdrawal,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_62,Take no time for others.,agreeableness,compassion,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_63,Get things done quickly.,conscientiousness,industriousness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_64,Am not a very enthusiastic person.,extraversion,enthusiasm,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_65,Have a rich vocabulary.,openness,intellect,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_66,Am a person whose moods go up and down easily.,neuroticism,volatility,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_67,Insult people.,agreeableness,politeness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_68,Am not bothered by disorder.,conscientiousness,orderliness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_69,Can talk others into doing things.,extraversion,assertiveness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_70,Need a creative outlet.,openness,openness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_71,Am not embarrassed easily.,neuroticism,withdrawal,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_72,Take an interest in other people's lives.,agreeableness,compassion,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_73,Always know what I am doing.,conscientiousness,industriousness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_74,Show my feelings when I'm happy.,extraversion,enthusiasm,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_75,Think quickly.,openness,intellect,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_76,Am not easily annoyed.,neuroticism,volatility,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_77,Seek conflict.,agreeableness,politeness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_78,Dislike routine.,conscientiousness,orderliness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_79,Hold back my opinions.,extraversion,assertiveness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_80,Seldom get lost in thought.,openness,openness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_81,Become overwhelmed by events.,neuroticism,withdrawal,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_82,Don't have a soft side.,agreeableness,compassion,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_83,Postpone decisions.,conscientiousness,industriousness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_84,Have a lot of fun.,extraversion,enthusiasm,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_85,Learn things slowly.,openness,intellect,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_86,Get easily agitated.,neuroticism,volatility,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_87,Love a good fight.,agreeableness,politeness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_88,See that rules are observed.,conscientiousness,orderliness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_89,Am the first to act.,extraversion,assertiveness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_90,Seldom daydream.,openness,openness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_91,Am afraid of many things.,neuroticism,withdrawal,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_92,Like to do things for others.,agreeableness,compassion,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_93,Am easily distracted.,conscientiousness,industriousness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_94,Laugh a lot.,extraversion,enthusiasm,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_95,Formulate ideas clearly.,openness,intellect,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_96,Can be stirred up easily.,neuroticism,volatility,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_97,Am out for my own personal gain.,agreeableness,politeness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_98,Want every detail taken care of.,conscientiousness,orderliness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_99,Do not have an assertive personality.,extraversion,assertiveness,-1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+bfas_100,See beauty in things that others might not notice.,openness,openness,1,numeric,1 Strongly Disagree 2 Disagree 3 Neither Agree nor Disagree 4 Agree 5 Strongly Agree
+age,Age,,,,character,NA
+gender,I identify my gender as: (please specify),,,,character,NA
+race,I identify my race/ethnicity as: (please specify),,,,character,NA
+year,What is your current year in school?,,,,character,NA
+socialclass,Which of the following best describes your social class background?,,,,factor,1 Low-income/poor 2 Working class/Lower middle class 3 Middle class 4 Upper middle class 5 Upper class
+usborn,Were you born in the U.S.?,,,,factor,1 No 2 Yes
