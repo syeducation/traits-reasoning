@@ -39,7 +39,7 @@ names(dat)
 
 # saving this to project directory, change outside of file
 # to: ~\Documents\traits-reasoning\Data
-# write.csv(dat, "traits_reasoning_data_2025-09-25.csv", row.names = FALSE)
+write.csv(dat, "traits_reasoning_data_2025-09-25.csv", row.names = FALSE)
 
 # read in data for processing
 # wd is the broader project directory ~\Documents\traits-reasoning
