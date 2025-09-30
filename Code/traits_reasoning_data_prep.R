@@ -1,8 +1,8 @@
+#############################################
 #### Traits and Reasoning Project ####
 # Script for cleanining: variable labels
 # Created on Sep 28, 2025, by Moin Syed
 # Checked on DATE, by NAME
-
 #############################################
 
 #### Workspace setup ####
@@ -16,9 +16,9 @@ sessionInfo()
 
 # R version 4.4.2
 # haven_2.5.4     
-#labelled_2.14.0 
-#codebook_0.9.6  
-#dplyr_1.1.4    
+# labelled_2.14.0 
+# codebook_0.9.6  
+# dplyr_1.1.4    
 
 #############################################
 
@@ -26,8 +26,8 @@ sessionInfo()
 
 # loading in data from Box directory, changed to location outside of file
 # from: ~\Box\P-STEM\Data\Raw Data - DO NOT MODIFY\Wave 1
-dat <- read.csv("PSTEM_Wave_1_WORKING_RAW_2022-02-02.csv")
-names(dat)
+# dat <- read.csv("PSTEM_Wave_1_WORKING_RAW_2022-02-02.csv")
+# names(dat)
 
 #############################################
 
@@ -39,7 +39,7 @@ names(dat)
 
 # saving this to project directory, change outside of file
 # to: ~\Documents\traits-reasoning\Data
-write.csv(dat, "traits_reasoning_data_2025-09-25.csv", row.names = FALSE)
+# write.csv(dat, "traits_reasoning_data_2025-09-25.csv", row.names = FALSE)
 
 # read in data for processing
 # wd is the broader project directory ~\Documents\traits-reasoning
@@ -47,6 +47,7 @@ write.csv(dat, "traits_reasoning_data_2025-09-25.csv", row.names = FALSE)
 dat <- read.csv("Data/traits_reasoning_data_2025-09-25.csv")
 names(dat)
 head(dat)
+View(dat)
 
 #############################################
 
@@ -66,6 +67,8 @@ labelled::var_label(dat) <- dict %>%
   dplyr::select(variable, label) %>%
   codebook::dict_to_list()
 
+View(dat)
+
 #############################################
 
 #### Label Variable Values ####
@@ -79,6 +82,7 @@ labelled::var_label(dat) <- dict %>%
   tf <- dict %>% 
     dplyr::filter (value_labels == "1 True 2 False") %>%
     dplyr::pull(variable)
+  
   add_tf <- function(x) {
     val_labels(x) <- c("True" = 1,
                        "False" = 2)
@@ -90,6 +94,7 @@ labelled::var_label(dat) <- dict %>%
   }
 
 #check
+
 dat$srs_1
 
 #add value labels likert 1-5 Agree w/ Neither
@@ -112,17 +117,18 @@ dat$srs_1
 }
 
 #check
+
 dat$bfas_1
 
 #############################################
 
 #### Save these Files for Future Use ####
 
-write.csv(dat, "Data/traits_reasoning_data_working_2025-09-28.csv", row.names = F)  
+# write.csv(dat, "Data/traits_reasoning_data_working_2025-09-28.csv", row.names = F)  
 
-saveRDS(dat, "Data/traits_reasoning_data_working_2025-09-28.RData")
+# saveRDS(dat, "Data/traits_reasoning_data_working_2025-09-28.RData")
 
-haven::write_sav(dat, "Data/traits_reasoning_data_working_2025-09-28.sav")
+# haven::write_sav(dat, "Data/traits_reasoning_data_working_2025-09-28.sav")
 
 #############################################
 
