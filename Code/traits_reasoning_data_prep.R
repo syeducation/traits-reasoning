@@ -49,6 +49,15 @@ names(dat)
 head(dat)
 View(dat)
 
+# creating a new data file without demographics, which cab be posted
+# save this version to Data subdirectory
+# this file is only for posting, analyses should use traits_reasoning_data_2025-09-25.csv
+
+# dat_nodemos <- dat %>% select(participant_id:bfas_100)
+# names(dat_nodemos)
+
+# write.csv(dat, "Data/traits_reasoning_data_nodemos_2025-10-19.csv", row.names = FALSE)
+
 #############################################
 
 #### Label Variable Names ####
@@ -57,7 +66,7 @@ View(dat)
 
 # read in dictionary
 
-dict <- read.csv("Data/traits_reasoning_dictionary_2025-09-15.csv")
+dict <- read.csv("Data/traits_reasoning_dictionary_2025-09-25.csv")
 names(dict)
 
 # variable labels
