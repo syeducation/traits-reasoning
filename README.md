@@ -7,3 +7,5 @@ The purpose of this project is to run through some workflow options, less so tha
 actually address a scientific question (although that is also interesting).
 
 This README wil be updated as the project progresses. Which will hopefully be soon!
+
+I am making some changes!
