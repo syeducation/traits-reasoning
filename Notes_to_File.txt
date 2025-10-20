@@ -3,3 +3,4 @@
 ##### A file for internal project notes, data anomalies, etc. 
 ##### First created July 18, 2025
 
+This project is a mess. 
