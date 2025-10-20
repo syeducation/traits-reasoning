@@ -8,4 +8,4 @@ actually address a scientific question (although that is also interesting).
 
 This README wil be updated as the project progresses. Which will hopefully be soon!
 
-I am making some changes!
+I am making some changes! These are not good ones. 
