@@ -38,25 +38,25 @@ sessionInfo()
 # names(dat)
 
 # saving this to project directory, change outside of file
-# to: ~\Documents\traits-reasoning\Data
-# write.csv(dat, "traits_reasoning_data_2025-09-25.csv", row.names = FALSE)
+# to: ~\Documents\traits-reasoning
+# write.csv(dat, "Data/traits_reasoning_data_2025-10-24.csv", row.names = FALSE)
 
 # read in data for processing
 # wd is the broader project directory ~\Documents\traits-reasoning
 
-dat <- read.csv("Data/traits_reasoning_data_2025-09-25.csv")
-names(dat)
-head(dat)
-View(dat)
+# dat <- read.csv("Data/traits_reasoning_data_2025-10-24.csv")
+# names(dat)
+# head(dat)
+# View(dat)
 
-# creating a new data file without demographics, which cab be posted
+# creating a new data file without demographics, which can be posted
 # save this version to Data subdirectory
-# this file is only for posting, analyses should use traits_reasoning_data_2025-09-25.csv
+# this file is only for posting, analyses should use traits_reasoning_data_2025-10-24.csv
 
 # dat_nodemos <- dat %>% select(participant_id:bfas_100)
 # names(dat_nodemos)
 
-# write.csv(dat, "Data/traits_reasoning_data_nodemos_2025-10-19.csv", row.names = FALSE)
+# write.csv(dat_nodemos, "Data/traits_reasoning_data_nodemos_2025-10-24.csv", row.names = FALSE)
 
 #############################################
 
