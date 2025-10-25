@@ -1,0 +1,108 @@
+---
+title: "Traits & Reasoning Project"
+author: "Moin Syed"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+```
+
+```{r load packages, include=FALSE}
+
+library(groundhog)
+groundhog.library(dplyr, "2025-04-01")
+groundhog.library(psych, "2025-04-01")
+groundhog.library(labelled, "2025-04-01")
+groundhog.library(ggplot2, "2025-04-01")
+
+sessionInfo()
+
+```
+
+```{r data setup, include=FALSE}
+
+dat <- read.csv("Data/traits_reasoning_data_2025-10-24.csv")
+names(dat)
+
+```
+
+
+## Abstract 
+
+Blah blah blah
+
+## Background
+
+Personality traits are important, **so** important. 
+
+### The Present Study
+
+The purpose of the present study was to....
+
+## Method
+
+Data and Code are available at <https://github.com/syeducation/traits-reasoning>.
+
+### Participants and Procedure
+
+```{r demographics, include=FALSE}
+
+age_mean <- mean(dat$age)
+age_sd <- sd(dat$age)
+
+```
+
+The total sample in the current study consists of `r nrow(dat)` students enrolled in one of the three STEM-focused colleges at a large public university in the U.S. Midwest (*M* age = `r age_mean`, *SD* = `r age_sd`). Participants were recruited from a list of all first-year students in the three colleges who identified as racial/ethnic minorities. Eligible students were sent a survey link via email and compensated $25 for their participation. 
+
+### Measures
+
+#### Personality Traits.
+
+Participants completed the 100-item Big Five Aspect Scale (BFAS), which assesses the big five traits as well as ten aspects. 
+
+#### Scientific Reasoning.
+
+```{r scientific reasoning, include=FALSE}
+
+dat <- dat %>% mutate(srs_1_scored = recode(srs_1, `1` = 1, `2` = 0),
+                      srs_2_scored = recode(srs_2, `1` = 0, `2` = 1),
+                      srs_3_scored = recode(srs_3, `1` = 1, `2` = 0),
+                      srs_4_scored = recode(srs_4, `1` = 0, `2` = 1),
+                      srs_5_scored = recode(srs_5, `1` = 0, `2` = 1),
+                      srs_6_scored = recode(srs_6, `1` = 0, `2` = 1),
+                      srs_7_scored = recode(srs_7, `1` = 1, `2` = 0),
+                      srs_8_scored = recode(srs_8, `1` = 0, `2` = 1),
+                      srs_9_scored = recode(srs_9, `1` = 0, `2` = 1),
+                      srs_10_scored = recode(srs_10, `1` = 0, `2` = 1),
+                      srs_11_scored = recode(srs_11, `1` = 0, `2` = 1))
+
+srs_items <- c("srs_1_scored", "srs_2_scored", "srs_3_scored", "srs_4_scored", "srs_5_scored", "srs_6_scored", "srs_7_scored", "srs_8_scored", "srs_9_scored", "srs_10_scored", "srs_11_scored")
+
+dat <- dat %>% dplyr::mutate(srs = rowMeans(dat[ ,srs_items], na.rm = TRUE))
+
+labelled::var_label(dat$srs) <- "Scientific Reasoning Scale - Mean"
+
+psych::describe(dat$srs)
+
+alpha_srs <-  psych::alpha(dplyr::select(dat, "srs_1_scored", "srs_2_scored", "srs_3_scored", "srs_4_scored", "srs_5_scored", "srs_6_scored", "srs_7_scored", "srs_8_scored", "srs_9_scored", "srs_10_scored", "srs_11_scored"))
+
+srs_alpha <- alpha_srs$total$std.alpha
+
+```
+
+11-item assessment of scientific reasoning (Cronbach's alpha = `r srs_alpha`). 
+
+## Results
+
+```{r histogram, echo=FALSE}
+hist(dat$srs)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Discussion
+
