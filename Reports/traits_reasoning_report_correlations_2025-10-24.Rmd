@@ -1,5 +1,5 @@
 ---
-title: "Traits & Reasoning Project"
+title: "Personality Traits and Scientific Reasoning"
 author: "Moin Syed"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -31,26 +31,30 @@ names(dat)
 
 ```
 
-
 ## Abstract 
 
-Blah blah blah
+Personality traits have been shown to be related to many aspects of life. But what about scientific reasoning? We don't really know how these are related. The current study consists of an analysis of `r nrow(dat)` U.S. college students enrolled in STEM majors who completed measures of personality traits and scientific reasoning. The results indicated a lot of variability in scientific reasoning. 
 
 ## Background
 
-Scientific Reasoniong, **how does it work?**. 
+Personality traits have been shown to be related to many aspects of life (Ozer & Benet-Martinez, 2006). But what about scientific reasoning? We don't really know how these are related, but it seems like finding out would be worthwhile. This is not just because we don't know--there are many questions for which we have no answers, and that is probably for a good reason. Not all questions are good or useful! Good to keep in mind. 
+
+But here I think we are dealing with a good question. Personality traits correspond to relatively stable patterns of individual differences in thoughts, emotions, and behaviors. Variations in these individual differences have been linked to many life outcomes, including academic achievement. Scientifc reasoning is important not only for those participating in science, but also for society at large. Knowing more about how personality traits are related to scientific reasoning could help us better understand who tends to excel in this area, and thus could help align people's careers with their personalities, but also would open up new possibilities for how to tailor our approach to teaching scientific reasoning. 
 
 ### The Present Study
 
-The purpose of the present study was to....
+The purpose of the present study was to examine how personality traits are related to scientific reasoning. This was an exploratory correlational study with no *a priori* hypotheses.
 
 ## Method
 
-Data and Code are available at <https://github.com/syeducation/traits-reasoning>.
+The current study was **NOT** preregistered. Data and code are available at <https://github.com/syeducation/traits-reasoning>.
+You can also access the data and code [by clikcin on this text here](https://github.com/syeducation/traits-reasoning). 
 
 ### Participants and Procedure
 
 ```{r demographics, include=FALSE}
+
+# create objects for mean and sd of age, to be inserted in text
 
 age_mean <- mean(dat$age)
 age_sd <- sd(dat$age)
@@ -63,11 +67,13 @@ The total sample in the current study consists of `r nrow(dat)` students enrolle
 
 #### Personality Traits.
 
-Participants completed the 100-item Big Five Aspect Scale (BFAS), which assesses the big five traits as well as ten aspects. We collected these, but we aren't using them in the current study (despite the title of the project). 
+Participants completed the 100-item Big Five Aspect Scale (DeYoung et al., 2007), which assesses the big five traits as well as ten aspects. We collected these, but we aren't using them in the current study (despite the title of the project). 
 
 #### Scientific Reasoning.
 
 ```{r scientific reasoning, include=FALSE}
+
+# first need to recode the scale ao that 1 always indicates a correct answer
 
 dat <- dat %>% mutate(srs_1_scored = recode(srs_1, `1` = 1, `2` = 0),
                       srs_2_scored = recode(srs_2, `1` = 0, `2` = 1),
@@ -81,24 +87,36 @@ dat <- dat %>% mutate(srs_1_scored = recode(srs_1, `1` = 1, `2` = 0),
                       srs_10_scored = recode(srs_10, `1` = 0, `2` = 1),
                       srs_11_scored = recode(srs_11, `1` = 0, `2` = 1))
 
+# pull these together into an object for further use
+
 srs_items <- c("srs_1_scored", "srs_2_scored", "srs_3_scored", "srs_4_scored", "srs_5_scored", "srs_6_scored", "srs_7_scored", "srs_8_scored", "srs_9_scored", "srs_10_scored", "srs_11_scored")
+
+# creating a new variable that is the mean score across items
 
 dat <- dat %>% dplyr::mutate(srs = rowMeans(dat[ ,srs_items], na.rm = TRUE))
 
+# give that new variable a label
+
 labelled::var_label(dat$srs) <- "Scientific Reasoning Scale - Mean"
+
+# check that all looks ok
 
 psych::describe(dat$srs)
 
+# get cronbach's alpha for the scale, assign to object
+
 alpha_srs <-  psych::alpha(dplyr::select(dat, "srs_1_scored", "srs_2_scored", "srs_3_scored", "srs_4_scored", "srs_5_scored", "srs_6_scored", "srs_7_scored", "srs_8_scored", "srs_9_scored", "srs_10_scored", "srs_11_scored"))
+
+# pull out just the alpha and save as object to insert into text
 
 srs_alpha <- alpha_srs$total$std.alpha
 
-# create object for mean and sd for full scale
+# create object for mean and sd for full scale to insert into text
 
 srs_mean <- mean(dat$srs)
 srs_sd <- sd(dat$srs)
 
-# create object for mean and sd for each item
+# create object for mean and sd for each item to insert into table
 
 srs_1_mean <- mean(dat$srs_1_scored)
 srs_2_mean <- mean(dat$srs_2_scored)
@@ -122,6 +140,8 @@ srs_8_sd <- sd(dat$srs_8_scored)
 srs_9_sd <- sd(dat$srs_9_scored)
 srs_10_sd <- sd(dat$srs_10_scored)
 srs_11_sd <- sd(dat$srs_11_scored)
+
+# label each item in scale....may or may not use, but good to have
 
 labelled::var_label(dat$srs_1_scored) <- "In a taste test, a researcher puts Brand A coffee in a cup with white tape on it and Brand B coffee in an identical cup with black tape on it. A lab assistant gives tasters one of the cups, while the researcher watches their facial expressions.
 True or False? The lab assistant should not watch the cups being filled."
@@ -148,7 +168,7 @@ True or False? These questions are equally good for measuring how consumers feel
 
 ```
 
-11-item assessment of scientific reasoning (Cronbach's alpha = `r round(srs_alpha, digits = 2)`). 
+Participants completed an 11-item assessment of scientific reasoning (Drummond & Fischhoff, 2017), in which they were asked to read a description of a scientific activity and then answer True or False to a question about that activity (Cronbach's alpha = `r round(srs_alpha, digits = 2)`). 
 
 ## Results
 
@@ -158,7 +178,11 @@ Here is a table of each item and its rate of success:
 
 ```{r descriprtive table, echo=FALSE}
 
-srs_table <- tribble(
+# this code creates a table, in which you almost literally "create" the table with the code
+# that is, the first row (with the ~) serves as the column headers
+# then the following entries indicate what should go in each cell. 
+
+srs_table <- dplyr::tribble(
     ~Item, ~Mean, ~SD,
     "SRS Item 1", srs_1_mean,  srs_1_sd,
     "SRS Item 2", srs_2_mean,  srs_2_sd,
@@ -172,6 +196,8 @@ srs_table <- tribble(
     "SRS Item 10", srs_10_mean,  srs_10_sd,
     "SRS Item 11", srs_11_mean,  srs_11_sd)
 
+# now we can use the kable package to format that table
+
 knitr::kable(srs_table, format = "simple", 
              caption = "Descriptives for SRS scale",
              align = "c", digits = 2)
@@ -182,9 +208,12 @@ It looks like item 11 was the most difficult:
 
 >`r var_label(dat$srs_11_scored)`
 
-On average, people did pretty well, but you can see there is quite a bit of variability:
+On average, people did pretty well, but from the standard deviation for the scale as well as the means and standard deviations of the individual items you can see there is quite a bit of variability. It is always important to plot your data, so let's take a look at the distribution!
 
 ```{r histogram, echo=FALSE}
+
+# basic histogram code using ggplot. 
+# remember for quick and dirty checks you can use the base r hist() function
 
 ggplot(dat, aes(srs)) +
   geom_histogram(binwidth = .10, fill = "green", color = "black") +
@@ -198,4 +227,14 @@ ggplot(dat, aes(srs)) +
 
 ## Discussion
 
-Overall, it seems that people reason about science, but maybe not as much as we would hope.
+The purpose of the present study was to examine how personality traits are related to scientific reasoning.
+
+Overall, it seems that people reason about science, but maybe not as much as we would have hope.
+
+We don;t actually know how personality traits are related to scientific reasoning, because we did not assess that. That is a limitation of the study that should guide future work. 
+
+In sum, this was a very mediocre study. We will try better in the future. 
+
+## References
+
+This can be done automatically, connected to Zotero, but is kind of annoying. 
