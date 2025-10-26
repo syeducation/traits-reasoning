@@ -18,14 +18,15 @@ groundhog.library(dplyr, "2025-04-01")
 groundhog.library(psych, "2025-04-01")
 groundhog.library(labelled, "2025-04-01")
 groundhog.library(ggplot2, "2025-04-01")
+groundhog.library(knitr, "2025-04-01")
 
 sessionInfo()
 
 ```
 
 ```{r data setup, include=FALSE}
-
-dat <- read.csv("Data/traits_reasoning_data_2025-10-24.csv")
+setwd("~/traits-reasoning/Data")
+dat <- read.csv("traits_reasoning_data_2025-10-24.csv")
 names(dat)
 
 ```
@@ -37,7 +38,7 @@ Blah blah blah
 
 ## Background
 
-Personality traits are important, **so** important. 
+Scientific Reasoniong, **how does it work?**. 
 
 ### The Present Study
 
@@ -56,13 +57,13 @@ age_sd <- sd(dat$age)
 
 ```
 
-The total sample in the current study consists of `r nrow(dat)` students enrolled in one of the three STEM-focused colleges at a large public university in the U.S. Midwest (*M* age = `r age_mean`, *SD* = `r age_sd`). Participants were recruited from a list of all first-year students in the three colleges who identified as racial/ethnic minorities. Eligible students were sent a survey link via email and compensated $25 for their participation. 
+The total sample in the current study consists of `r nrow(dat)` students enrolled in one of the three STEM-focused colleges at a large public university in the U.S. Midwest (*M* age = `r round(age_mean, digits = 2)`, *SD* = `r round(age_sd, digits = 2)`). Participants were recruited from a list of all first-year students in the three colleges who identified as racial/ethnic minorities. Eligible students were sent a survey link via email and compensated $25 for their participation. 
 
 ### Measures
 
 #### Personality Traits.
 
-Participants completed the 100-item Big Five Aspect Scale (BFAS), which assesses the big five traits as well as ten aspects. 
+Participants completed the 100-item Big Five Aspect Scale (BFAS), which assesses the big five traits as well as ten aspects. We collected these, but we aren't using them in the current study (despite the title of the project). 
 
 #### Scientific Reasoning.
 
@@ -92,17 +93,109 @@ alpha_srs <-  psych::alpha(dplyr::select(dat, "srs_1_scored", "srs_2_scored", "s
 
 srs_alpha <- alpha_srs$total$std.alpha
 
+# create object for mean and sd for full scale
+
+srs_mean <- mean(dat$srs)
+srs_sd <- sd(dat$srs)
+
+# create object for mean and sd for each item
+
+srs_1_mean <- mean(dat$srs_1_scored)
+srs_2_mean <- mean(dat$srs_2_scored)
+srs_3_mean <- mean(dat$srs_3_scored)
+srs_4_mean <- mean(dat$srs_4_scored)
+srs_5_mean <- mean(dat$srs_5_scored)
+srs_6_mean <- mean(dat$srs_6_scored)
+srs_7_mean <- mean(dat$srs_7_scored)
+srs_8_mean <- mean(dat$srs_8_scored)
+srs_9_mean <- mean(dat$srs_9_scored)
+srs_10_mean <- mean(dat$srs_10_scored)
+srs_11_mean <- mean(dat$srs_11_scored)
+srs_1_sd <- sd(dat$srs_1_scored)
+srs_2_sd <- sd(dat$srs_2_scored)
+srs_3_sd <- sd(dat$srs_3_scored)
+srs_4_sd <- sd(dat$srs_4_scored)
+srs_5_sd <- sd(dat$srs_5_scored)
+srs_6_sd <- sd(dat$srs_6_scored)
+srs_7_sd <- sd(dat$srs_7_scored)
+srs_8_sd <- sd(dat$srs_8_scored)
+srs_9_sd <- sd(dat$srs_9_scored)
+srs_10_sd <- sd(dat$srs_10_scored)
+srs_11_sd <- sd(dat$srs_11_scored)
+
+labelled::var_label(dat$srs_1_scored) <- "In a taste test, a researcher puts Brand A coffee in a cup with white tape on it and Brand B coffee in an identical cup with black tape on it. A lab assistant gives tasters one of the cups, while the researcher watches their facial expressions.
+True or False? The lab assistant should not watch the cups being filled."
+labelled::var_label(dat$srs_2_scored) <- "A researcher finds that American states with larger parks have fewer endangered species.
+True or False? These data show that increasing the size of American state parks will reduce the number of endangered species."
+labelled::var_label(dat$srs_3_scored) <- "A researcher has subjects put together a jigsaw puzzle either in a cold room with a loud radio or in a warm room with no radio. Subjects solve the puzzle more quickly in the warm room with no radio. 
+True or False? The scientist cannot tell if the radio caused subjects to solve the puzzle more slowly."
+labelled::var_label(dat$srs_4_scored) <- "An education researcher wants to measure the general math ability of a sample of high-performing math students. All the students have taken classes in geometry and pre-calculus.
+True or False? The education researcher can measure general math ability by giving the students a geometry test."
+labelled::var_label(dat$srs_5_scored) <- "Two scientists test an anti-acne cream on teenagers with acne. Scientist A wants to give the cream to all the teenagers in the study. Scientist B wants to give the cream to half the teenagers and give a cream without anti-acne ingredients to the other half.
+True or False? Both ways of testing the cream are equally good."
+labelled::var_label(dat$srs_6_scored) <- "A researcher has a group of subjects play a competitive game. Each subject’s goal is to make money by buying and selling tokens. Subjects are paid a flat fee for participating in the experiment.
+True or False? The researcher can confidently state that the behavior in the experiment reflects real-life buying and selling behavior."
+labelled::var_label(dat$srs_7_scored) <- "A randomly selected sample of Americans is surveyed about disease A before and after a 6-month media campaign about the disease. Mid-way through the media campaign, a famous celebrity dies of Disease A. The survey data indicate that knowledge of Disease A is higher after the campaign.
+True or False? The media campaign may not have increased knowledge of Disease A"
+labelled::var_label(dat$srs_8_scored) <- "Subjects in an experiment must press a button whenever a blue dot flashes on their computer screen. At first, the task is easy for subjects. But as they continue to perform the task, they make more and more errors.
+True or False? The blue dot must flash more quickly as the task progresses."
+labelled::var_label(dat$srs_9_scored) <- "Researchers want to see whether a health intervention helps school children to lose weight. School children are sorted into either an intervention or control group.
+True or False? The researchers should assign the overweight children to the intervention group."
+labelled::var_label(dat$srs_10_scored) <- "A researcher develops a new method for measuring the surface tension of liquids. This method is more consistent than the old method.
+True or False? The new method must also be more accurate than the old method."
+labelled::var_label(dat$srs_11_scored) <- "Two researchers are developing a survey to measure consumers’ feelings about customer service. Researcher A wants customers to rate their agreement with the statement “I am satisfied with customer service” on a 5-point scale, where 1 = strongly agree and 5 = strongly disagree. Researcher B wants customers to rate customer service on a 5-point scale, where 1 = not dissatisfied at all and 5 = highly dissatisfied.
+True or False? These questions are equally good for measuring how consumers feel about customer service."
+
 ```
 
-11-item assessment of scientific reasoning (Cronbach's alpha = `r srs_alpha`). 
+11-item assessment of scientific reasoning (Cronbach's alpha = `r round(srs_alpha, digits = 2)`). 
 
 ## Results
 
-```{r histogram, echo=FALSE}
-hist(dat$srs)
+Overall, participant did well on the scientific reasoning task, averaging more correct than incorrect answers, *M* correct = `r round(srs_mean, digits = 2)`, (*SD* = `r round(srs_sd, digits = 2)`). However, these results are best examined via tables and figures, so let's look at some.
+
+Here is a table of each item and its rate of success:
+
+```{r descriprtive table, echo=FALSE}
+
+srs_table <- tribble(
+    ~Item, ~Mean, ~SD,
+    "SRS Item 1", srs_1_mean,  srs_1_sd,
+    "SRS Item 2", srs_2_mean,  srs_2_sd,
+    "SRS Item 3", srs_3_mean,  srs_3_sd,
+    "SRS Item 4", srs_4_mean,  srs_4_sd,
+    "SRS Item 5", srs_5_mean,  srs_5_sd,
+    "SRS Item 6", srs_6_mean,  srs_6_sd,
+    "SRS Item 7", srs_7_mean,  srs_7_sd,
+    "SRS Item 8", srs_8_mean,  srs_8_sd,
+    "SRS Item 9", srs_9_mean,  srs_9_sd,
+    "SRS Item 10", srs_10_mean,  srs_10_sd,
+    "SRS Item 11", srs_11_mean,  srs_11_sd)
+
+knitr::kable(srs_table, format = "simple", 
+             caption = "Descriptives for SRS scale",
+             align = "c", digits = 2)
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+It looks like item 11 was the most difficult: 
+
+>`r var_label(dat$srs_11_scored)`
+
+On average, people did pretty well, but you can see there is quite a bit of variability:
+
+```{r histogram, echo=FALSE}
+
+ggplot(dat, aes(srs)) +
+  geom_histogram(binwidth = .10, fill = "green", color = "black") +
+  theme_classic() +
+  labs(title = "Distribution of Scientific Reasoning Scores",
+       x = "% Correct",
+       y = "Frequency (Count)")
+  
+
+```
 
 ## Discussion
 
+Overall, it seems that people reason about science, but maybe not as much as we would hope.
