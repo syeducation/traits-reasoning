@@ -2,3 +2,11 @@
 ##### Reports Notes
 ##### A file for internal project notes about project reports
 ##### First created July 18, 2025
+
+2025-10-26 - there was suddenly a rendering error related to the babel pacakage 
+not recognizing english. This was resolved via internet friends by running the 
+following code to reinstall english:
+
+tinytex::tlmgr_install('babel-english')
+
+The same should work if there are problems with any other language. 
