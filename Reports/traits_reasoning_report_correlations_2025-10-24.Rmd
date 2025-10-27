@@ -14,19 +14,16 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```{r load packages, include=FALSE}
 
 library(groundhog)
-groundhog.library(dplyr, "2025-04-01")
-groundhog.library(psych, "2025-04-01")
-groundhog.library(labelled, "2025-04-01")
-groundhog.library(ggplot2, "2025-04-01")
-groundhog.library(knitr, "2025-04-01")
-
-sessionInfo()
+library(dplyr)
+library(labelled)
+library(ggplot2)
+library(knitr)
 
 ```
 
 ```{r data setup, include=FALSE}
-setwd("~/traits-reasoning/Data")
-dat <- read.csv("traits_reasoning_data_2025-10-24.csv")
+# setwd("~/traits-reasoning/Data")
+dat <- read.csv("../Data/traits_reasoning_data_2025-10-24.csv")
 names(dat)
 
 ```
@@ -48,7 +45,7 @@ The purpose of the present study was to examine how personality traits are relat
 ## Method
 
 The current study was **NOT** preregistered. Data and code are available at <https://github.com/syeducation/traits-reasoning>.
-You can also access the data and code [by clikcin on this text here](https://github.com/syeducation/traits-reasoning). 
+You can also access the data and code [by clicking on this text here](https://github.com/syeducation/traits-reasoning). 
 
 ### Participants and Procedure
 
