@@ -30,9 +30,6 @@ authornote: |
 abstract: |
   Personality traits have been shown to be related to many aspects of life. But what about scientific reasoning? We don't really know how these are related. The current study consists of an analysis of 199 U.S. college students enrolled in STEM majors who completed measures of personality traits and scientific reasoning. The results indicated a lot of variability in scientific reasoning. 
   
-  
-  <!-- https://tinyurl.com/ybremelq -->
-  
 keywords          : "personality, traits, scientific reasoning, truth"
 wordcount         : "751"
 
@@ -48,7 +45,7 @@ tablelist         : no
 footnotelist      : no
 
 classoption       : "man"
-output            : papaja::apa6_word
+output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
