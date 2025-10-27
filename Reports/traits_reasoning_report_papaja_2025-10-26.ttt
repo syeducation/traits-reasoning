@@ -1,0 +1,24 @@
+\begin{longtable}[]{@{}ccc@{}}
+\caption{(\#tab:descriprtive table) Descriptives for SRS scale}\tabularnewline
+\toprule\noalign{}
+Item & Mean & SD \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Item & Mean & SD \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+SRS Item 1 & 0.57 & 0.50 \\
+SRS Item 2 & 0.59 & 0.49 \\
+SRS Item 3 & 0.81 & 0.39 \\
+SRS Item 4 & 0.60 & 0.49 \\
+SRS Item 5 & 0.78 & 0.42 \\
+SRS Item 6 & 0.69 & 0.46 \\
+SRS Item 7 & 0.71 & 0.45 \\
+SRS Item 8 & 0.61 & 0.49 \\
+SRS Item 9 & 0.69 & 0.46 \\
+SRS Item 10 & 0.58 & 0.49 \\
+SRS Item 11 & 0.49 & 0.50 \\
+\end{longtable}
