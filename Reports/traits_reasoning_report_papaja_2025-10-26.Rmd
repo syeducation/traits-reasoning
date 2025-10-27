@@ -34,7 +34,7 @@ abstract: |
   <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "personality, traits, scientific reasoning, truth"
-wordcount         : "X"
+wordcount         : "751"
 
 bibliography      : "r-references.bib"
 
@@ -48,17 +48,17 @@ tablelist         : no
 footnotelist      : no
 
 classoption       : "man"
-output            : papaja::apa6_pdf
+output            : papaja::apa6_word
 ---
 
 ```{r setup, include = FALSE}
 library(papaja)
 library(groundhog)
-groundhog.library(dplyr, "2025-04-01")
-groundhog.library(psych, "2025-04-01")
-groundhog.library(labelled, "2025-04-01")
-groundhog.library(ggplot2, "2025-04-01")
-groundhog.library(knitr, "2025-04-01")
+library(dplyr)
+library(psych)
+library(labelled)
+library(ggplot2)
+library(knitr)
 r_refs("r-references.bib")
 ```
 
@@ -70,8 +70,8 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 
 ```{r data setup, include=FALSE}
-setwd("~/traits-reasoning/Data")
-dat <- read.csv("traits_reasoning_data_2025-10-24.csv")
+# setwd("~/traits-reasoning/Data")
+dat <- read.csv("../Data/traits_reasoning_data_2025-10-24.csv")
 names(dat)
 
 ```
@@ -269,11 +269,7 @@ ggplot(dat, aes(srs)) +
 
 # Discussion
 
-The purpose of the present study was to examine how personality traits are related to scientific reasoning.
-
-Overall, it seems that people reason about science, but maybe not as much as we would have hope.
-
-We don;t actually know how personality traits are related to scientific reasoning, because we did not assess that. That is a limitation of the study that should guide future work. 
+The purpose of the present study was to examine how personality traits are related to scientific reasoning. Overall, it seems that people reason about science, but maybe not as much as we would have hope.We don't actually know how personality traits are related to scientific reasoning, because we did not assess that. That is a limitation of the study that should guide future work. 
 
 In sum, this was a very mediocre study. We will try better in the future. 
 
