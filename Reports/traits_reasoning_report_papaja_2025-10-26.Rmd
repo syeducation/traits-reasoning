@@ -36,7 +36,7 @@ wordcount         : "751"
 bibliography      : "r-references.bib"
 
 floatsintext      : yes
-linenumbers       : yes
+linenumbers       : no
 draft             : no
 mask              : no
 
@@ -55,7 +55,6 @@ library(dplyr)
 library(psych)
 library(labelled)
 library(ggplot2)
-library(knitr)
 r_refs("r-references.bib")
 ```
 
@@ -95,8 +94,20 @@ You can also access the data and code [by clicking on this text here](https://gi
 age_mean <- mean(dat$age)
 age_sd <- sd(dat$age)
 
+# recode usborn factors from (1, 2) to (born outside U.S., born inside U.S.)
+
+dat <- mutate(dat, usborn = factor(usborn, levels = c(1,2),
+                                   labels = c("Not Born in U.S.", "Born in U.S.")))
+summarytools::freq(dat$usborn)
+
+# now creating object for percent born in U.S., to include in descriptives
+
+usborn_percent <- (nrow(filter(dat, usborn == "Born in U.S."))/(nrow(dat)) * 100)
+
 ```
-The total sample in the current study consists of `r nrow(dat)` students enrolled in one of the three STEM-focused colleges at a large public university in the U.S. Midwest (*M* age = `r round(age_mean, digits = 2)`, *SD* = `r round(age_sd, digits = 2)`). Participants were recruited from a list of all first-year students in the three colleges who identified as racial/ethnic minorities. Eligible students were sent a survey link via email and compensated $25 for their participation. 
+The total sample in the current study consists of `r nrow(dat)` students enrolled in one of the three STEM-focused colleges at a large public university in the U.S. Midwest (*M* age = `r round(age_mean, digits = 2)`, *SD* = `r round(age_sd, digits = 2)`). Most of the participants (`r round(usborn_percent, digits = 2)`%) were born in the U.S. 
+
+Participants were recruited from a list of all first-year students in the three colleges who identified as racial/ethnic minorities. Eligible students were sent a survey link via email and compensated $25 for their participation. 
 
 ## Measures
 
@@ -215,7 +226,8 @@ Overall, participant did well on the scientific reasoning task, averaging more c
 
 Here is a table of each item and its rate of success:
 
-```{r descriprtive table, echo=FALSE}
+
+```{r descriptive table, echo=FALSE}
 
 # this code creates a table, in which you almost literally "create" the table with the code
 # that is, the first row (with the ~) serves as the column headers
@@ -235,17 +247,20 @@ srs_table <- dplyr::tribble(
     "SRS Item 10", srs_10_mean,  srs_10_sd,
     "SRS Item 11", srs_11_mean,  srs_11_sd)
 
-# now we can use the kable package to format that table
+# now we can use the built in APA table function to format that table
 
-knitr::kable(srs_table, format = "simple", 
+apa_table(srs_table, 
              caption = "Descriptives for SRS scale",
-             align = "c", digits = 2)
+             align = "l", digits = 2,
+          note = "This is a table")
 
 ```
+
 
 It looks like item 11 was the most difficult: 
 
 >`r var_label(dat$srs_11_scored)`
+
 
 On average, people did pretty well, but from the standard deviation for the scale as well as the means and standard deviations of the individual items you can see there is quite a bit of variability. It is always important to plot your data, so let's take a look at the distribution!
 
@@ -260,9 +275,57 @@ ggplot(dat, aes(srs)) +
   labs(title = "Distribution of Scientific Reasoning Scores",
        x = "% Correct",
        y = "Frequency (Count)")
-  
 
 ```
+
+```{r usborn t-test, echo=FALSE}
+
+# comparing u.s. born and not u.s. born on scientific reasoning
+
+t_test_usborn <- t.test(dat$srs ~ dat$usborn)
+
+# save out all necessary objects
+
+t_usborn <- t_test_usborn$statistic
+df_usborn <- t_test_usborn$parameter
+p_usborn <- t_test_usborn$p.value
+
+
+```
+
+Next we examined whether immigrant status was related to difference in scientific reasoning. Results from a Welch's independent samples *t*-test indicated no significant differences between the two groups, *t*(`r df_usborn`) = `r t_usborn`, *p* = `r p_usborn`. See Table 2 for means and standard deviations by group.
+
+```{r usborn table, echo=FALSE}
+
+usborn_srs_means <- dat %>% group_by(usborn) %>% 
+  summarise(Mean = mean(srs,  na.rm = TRUE), 
+            SD = sd(srs,  na.rm = TRUE))
+
+
+apa_table(usborn_srs_means, 
+          caption = "Descriptives Statistics for SRS scale by Immigrant Status",
+          col.names = c("Immigrant Status", "Mean", "SD"),
+          align = "l", digits = 2,
+          note = "The groups did not statistically differ")
+
+```
+
+Tables are great and all, but it is also nice to see the data in a figure. Here is one:
+
+```{r usborn figure, echo=FALSE}
+
+# creating a nice violin plot
+
+ggplot(dat, aes(x = usborn, y = srs)) +
+  geom_violin(color = "black", fill = "green", alpha = .25) +
+  geom_boxplot(width = .4, fill = "green") +
+  geom_jitter(height = .05, width = .1, size = .90) +
+  scale_x_discrete(name = "Immigrant Status") +
+  scale_y_continuous(name = "Scientific Reasoning (Mean)") +
+  theme_classic()
+
+```
+*Figure 1*. A beautiful display of data 
 
 # Discussion
 
