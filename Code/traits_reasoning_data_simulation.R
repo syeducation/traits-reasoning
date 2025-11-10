@@ -7,12 +7,19 @@
 
 #### Workspace setup ####
 
-library(groundhog)
-groundhog.library(dplyr, "2025-04-01")
-groundhog.library(faux, "2025-04-01")
-groundhog.library(summarytools, "2025-04-01")
-groundhog.library(missMethods, "2025-04-01")
+# groundhong not always cooperating
 
+#library(groundhog)
+#groundhog.library(dplyr, "2025-04-01")
+#groundhog.library(faux, "2025-04-01")
+#groundhog.library(summarytools, "2025-04-01")
+#groundhog.library(missMethods, "2025-04-01")
+
+library(dplyr)
+library(faux)
+library(summarytools)
+library(missMethods)
+        
 sessionInfo()
 
 # R version 4.4.2
