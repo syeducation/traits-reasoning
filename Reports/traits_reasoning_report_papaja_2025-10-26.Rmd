@@ -66,7 +66,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 
 ```{r data setup, include=FALSE}
-# setwd("~/traits-reasoning/Data")
+
 dat <- read.csv("../Data/traits_reasoning_data_2025-10-24.csv")
 names(dat)
 
@@ -277,7 +277,20 @@ ggplot(dat, aes(srs)) +
        y = "Frequency (Count)")
 
 ```
+*Figure 1*. Histogram of scientific reasoning scale. 
 
+That's nice, but perhaps a density plot, separately for those born in the U.S. and those not. 
+
+```{r usborn density}
+
+ggplot(dat, aes(x = srs, fill = usborn)) + 
+  geom_density(alpha = 0.75) + 
+  scale_x_continuous(name = "Scientific Reasoning (Mean)") + 
+  scale_fill_discrete(name = "Immigrant Status") +
+  theme_classic()
+
+```
+*Figure 2*. Density plot of scientific reasoning by immigrant status. 
 ```{r usborn t-test, echo=FALSE}
 
 # comparing u.s. born and not u.s. born on scientific reasoning
@@ -290,15 +303,12 @@ t_usborn <- t_test_usborn$statistic
 df_usborn <- t_test_usborn$parameter
 p_usborn <- t_test_usborn$p.value
 
-
 ```
-
 Next we examined whether immigrant status was related to difference in scientific reasoning. Results from a Welch's independent samples *t*-test indicated no significant differences between the two groups, *t*(`r df_usborn`) = `r t_usborn`, *p* = `r p_usborn`. See Table 2 for means and standard deviations by group.
-
 ```{r usborn table, echo=FALSE}
 
-usborn_srs_means <- dat %>% group_by(usborn) %>% 
-  summarise(Mean = mean(srs,  na.rm = TRUE), 
+usborn_srs_means <- dat %>% dplyr::group_by(usborn) %>% 
+  dplyr::summarise(Mean = mean(srs,  na.rm = TRUE), 
             SD = sd(srs,  na.rm = TRUE))
 
 
@@ -309,9 +319,7 @@ apa_table(usborn_srs_means,
           note = "The groups did not statistically differ")
 
 ```
-
 Tables are great and all, but it is also nice to see the data in a figure. Here is one:
-
 ```{r usborn figure, echo=FALSE}
 
 # creating a nice violin plot
@@ -325,7 +333,7 @@ ggplot(dat, aes(x = usborn, y = srs)) +
   theme_classic()
 
 ```
-*Figure 1*. A beautiful display of data 
+*Figure 3*. A beautiful display of data 
 
 # Discussion
 

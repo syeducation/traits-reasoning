@@ -188,9 +188,6 @@
 {}{\PatchFailed}
 \makeatother
 \keywords{personality, traits, scientific reasoning, truth\newline\indent Word count: 751}
-\usepackage{lineno}
-
-\linenumbers
 \usepackage{csquotes}
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -262,7 +259,7 @@ Participants completed an 11-item assessment of scientific reasoning (Drummond \
 
 \subsection{Data analysis}\label{data-analysis}
 
-We used R (Version 4.4.2; R Core Team, 2024) and the R-packages \emph{apaTables} (Version 2.0.8; Stanley, 2021), \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{ggplot2} (Version 3.5.1; Wickham, 2016), \emph{groundhog} (Version 3.2.3; Simonsohn \& Gruson, 2025), \emph{knitr} (Version 1.50; Xie, 2015), \emph{labelled} (Version 2.14.0; Larmarange, 2025), \emph{papaja} (Version 0.1.4; Aust \& Barth, 2025), \emph{psych} (Version 2.5.3; William Revelle, 2025), and \emph{tinylabels} (Version 0.2.5; Barth, 2025) for all our analyses.
+We used R (Version 4.5.2; R Core Team, 2024) and the R-packages \emph{apaTables} (Stanley, 2021), \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{ggplot2} (Version 4.0.0; Wickham, 2016), \emph{groundhog} (Version 3.2.3; Simonsohn \& Gruson, 2025), \emph{knitr} (Version 1.50; Xie, 2015), \emph{labelled} (Version 2.16.0; Larmarange, 2025), \emph{papaja} (Version 0.1.4; Aust \& Barth, 2025), \emph{psych} (Version 2.5.6; William Revelle, 2025), and \emph{tinylabels} (Version 0.2.5; Barth, 2025) for all our analyses.
 
 \section{Results}\label{results}
 
@@ -315,6 +312,12 @@ True or False? These questions are equally good for measuring how consumers feel
 On average, people did pretty well, but from the standard deviation for the scale as well as the means and standard deviations of the individual items you can see there is quite a bit of variability. It is always important to plot your data, so let's take a look at the distribution!
 
 \pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/histogram-1.pdf}}
+\emph{Figure 1}. Histogram of scientific reasoning scale.
+
+That's nice, but perhaps a density plot, separately for those born in the U.S. and those not.
+
+\pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/usborn density-1.pdf}}
+\emph{Figure 2}. Density plot of scientific reasoning by immigrant status.
 
 Next we examined whether immigrant status was related to difference in scientific reasoning. Results from a Welch's independent samples \emph{t}-test indicated no significant differences between the two groups, \emph{t}(86.24) = -1.35, \emph{p} = 0.18. See Table 2 for means and standard deviations by group.
 
@@ -345,9 +348,8 @@ Born in U.S. & 0.66 & 0.22\\
 \end{table}
 
 Tables are great and all, but it is also nice to see the data in a figure. Here is one:
-
 \pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/usborn figure-1.pdf}}
-\emph{Figure 1}. A beautiful display of data
+\emph{Figure 3}. A beautiful display of data
 
 \section{Discussion}\label{discussion}
 
