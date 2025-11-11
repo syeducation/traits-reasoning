@@ -270,8 +270,8 @@ On average, people did pretty well, but from the standard deviation for the scal
 # remember for quick and dirty checks you can use the base r hist() function
 
 ggplot(dat, aes(srs)) +
-  geom_histogram(binwidth = .10, fill = "green", color = "black") +
-  theme_classic() +
+  geom_histogram(binwidth = .10, fill = "hotpink", color = "green") +
+  theme_apa() +
   labs(title = "Distribution of Scientific Reasoning Scores",
        x = "% Correct",
        y = "Frequency (Count)")
@@ -284,10 +284,10 @@ That's nice, but perhaps a density plot, separately for those born in the U.S. a
 ```{r usborn density}
 
 ggplot(dat, aes(x = srs, fill = usborn)) + 
-  geom_density(alpha = 0.75) + 
+  geom_density(alpha = 0.6) + 
   scale_x_continuous(name = "Scientific Reasoning (Mean)") + 
   scale_fill_discrete(name = "Immigrant Status") +
-  theme_classic()
+  theme_apa()
 
 ```
 *Figure 2*. Density plot of scientific reasoning by immigrant status. 
@@ -304,7 +304,7 @@ df_usborn <- t_test_usborn$parameter
 p_usborn <- t_test_usborn$p.value
 
 ```
-Next we examined whether immigrant status was related to difference in scientific reasoning. Results from a Welch's independent samples *t*-test indicated no significant differences between the two groups, *t*(`r df_usborn`) = `r t_usborn`, *p* = `r p_usborn`. See Table 2 for means and standard deviations by group.
+Next we examined whether immigrant status was related to differences in scientific reasoning. Results from a Welch's independent samples *t*-test indicated no significant differences between the two groups, *t*(`r df_usborn`) = `r t_usborn`, *p* = `r p_usborn`. See Table 2 for means and standard deviations by group.
 ```{r usborn table, echo=FALSE}
 
 usborn_srs_means <- dat %>% dplyr::group_by(usborn) %>% 
@@ -325,9 +325,12 @@ Tables are great and all, but it is also nice to see the data in a figure. Here 
 # creating a nice violin plot
 
 ggplot(dat, aes(x = usborn, y = srs)) +
+  geom_boxplot(width = .4, fill = "green")
+
+ggplot(dat, aes(x = usborn, y = srs)) +
   geom_violin(color = "black", fill = "green", alpha = .25) +
   geom_boxplot(width = .4, fill = "green") +
-  geom_jitter(height = .05, width = .1, size = .90) +
+  geom_jitter(height = .025, width = .05, size = .50, alpha = .50) +
   scale_x_discrete(name = "Immigrant Status") +
   scale_y_continuous(name = "Scientific Reasoning (Mean)") +
   theme_classic()
