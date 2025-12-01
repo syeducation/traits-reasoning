@@ -228,7 +228,7 @@ Personality traits have been shown to be related to many aspects of life. But wh
 \begin{document}
 \maketitle
 
-Personality traits have been shown to be related to many aspects of life (Ozer \& Benet-Martinez, 2006). But what about scientific reasoning? We don't really know how these are related, but it seems like finding out would be worthwhile. This is not just because we don't know--there are many questions for which we have no answers, and that is probably for a good reason. Not all questions are good or useful! Good to keep in mind.
+Personality traits have been shown to be related to many aspects of life Ozer and Benet-Martínez (2006). But what about scientific reasoning? We don't really know how these are related, but it seems like finding out would be worthwhile. This is not just because we don't know--there are many questions for which we have no answers, and that is probably for a good reason. Not all questions are good or useful! Good to keep in mind.
 
 But here I think we are dealing with a good question. Personality traits correspond to relatively stable patterns of individual differences in thoughts, emotions, and behaviors. Variations in these individual differences have been linked to many life outcomes, including academic achievement. Scientifc reasoning is important not only for those participating in science, but also for society at large. Knowing more about how personality traits are related to scientific reasoning could help us better understand who tends to excel in this area, and thus could help align people's careers with their personalities, but also would open up new possibilities for how to tailor our approach to teaching scientific reasoning.
 
@@ -238,8 +238,7 @@ The purpose of the present study was to examine how personality traits are relat
 
 \section{Method}\label{method}
 
-The current study was \textbf{NOT} preregistered. Data and code are available at \url{https://github.com/syeducation/traits-reasoning}.
-You can also access the data and code \href{https://github.com/syeducation/traits-reasoning}{by clicking on this text here}.
+The current study was \textbf{NOT} preregistered. Data and code are available at \url{https://github.com/syeducation/traits-reasoning}. You can also access the data and code \href{https://github.com/syeducation/traits-reasoning}{by clicking on this text here}.
 
 \subsection{Participants and Procedure}\label{participants-and-procedure}
 
@@ -259,7 +258,7 @@ Participants completed an 11-item assessment of scientific reasoning (Drummond \
 
 \subsection{Data analysis}\label{data-analysis}
 
-We used R (Version 4.5.2; R Core Team, 2024) and the R-packages \emph{apaTables} (Stanley, 2021), \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{ggplot2} (Version 4.0.0; Wickham, 2016), \emph{groundhog} (Version 3.2.3; Simonsohn \& Gruson, 2025), \emph{knitr} (Version 1.50; Xie, 2015), \emph{labelled} (Version 2.16.0; Larmarange, 2025), \emph{papaja} (Version 0.1.4; Aust \& Barth, 2025), \emph{psych} (Version 2.5.6; William Revelle, 2025), and \emph{tinylabels} (Version 0.2.5; Barth, 2025) for all our analyses.
+We used R (Version 4.5.2; R Core Team, 2024) and the R-packages \emph{apaTables} (Version 2.0.8; Stanley, 2021), \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{faux} (Version 1.2.3; DeBruine, 2025), \emph{ggplot2} (Version 4.0.0; Wickham, 2016), \emph{groundhog} (Version 3.2.3; Simonsohn \& Gruson, 2025), \emph{knitr} (Version 1.50; Xie, 2015), \emph{labelled} (Version 2.16.0; Larmarange, 2025), \emph{missMethods} (Version 0.4.0; Rockel, 2022), \emph{papaja} (Version 0.1.4; Aust \& Barth, 2025), \emph{psych} (Version 2.5.6; William Revelle, 2025), \emph{summarytools} (Version 1.1.4; Comtois, 2025), and \emph{tinylabels} (Version 0.2.5; Barth, 2025) for all our analyses.
 
 \section{Results}\label{results}
 
@@ -312,14 +311,16 @@ True or False? These questions are equally good for measuring how consumers feel
 On average, people did pretty well, but from the standard deviation for the scale as well as the means and standard deviations of the individual items you can see there is quite a bit of variability. It is always important to plot your data, so let's take a look at the distribution!
 
 \pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/histogram-1.pdf}}
+
 \emph{Figure 1}. Histogram of scientific reasoning scale.
 
 That's nice, but perhaps a density plot, separately for those born in the U.S. and those not.
 
 \pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/usborn density-1.pdf}}
+
 \emph{Figure 2}. Density plot of scientific reasoning by immigrant status.
 
-Next we examined whether immigrant status was related to difference in scientific reasoning. Results from a Welch's independent samples \emph{t}-test indicated no significant differences between the two groups, \emph{t}(86.24) = -1.35, \emph{p} = 0.18. See Table 2 for means and standard deviations by group.
+Next we examined whether immigrant status was related to differences in scientific reasoning. Results from a Welch's independent samples \emph{t}-test indicated no significant differences between the two groups, \emph{t}(86.24) = -1.35, \emph{p} = 0.18. See Table 2 for means and standard deviations by group.
 
 \begin{table}[tbp]
 
@@ -348,7 +349,9 @@ Born in U.S. & 0.66 & 0.22\\
 \end{table}
 
 Tables are great and all, but it is also nice to see the data in a figure. Here is one:
-\pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/usborn figure-1.pdf}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/usborn figure-1.pdf}} \pandocbounded{\includegraphics[keepaspectratio]{traits_reasoning_report_papaja_2025-10-26_files/figure-latex/usborn figure-2.pdf}}
+
 \emph{Figure 3}. A beautiful display of data
 
 \section{Discussion}\label{discussion}
@@ -369,11 +372,23 @@ Aust, F., \& Barth, M. (2025). \emph{{papaja}: {Prepare} reproducible {APA} jour
 \bibitem[\citeproctext]{ref-R-tinylabels}
 Barth, M. (2025). \emph{{tinylabels}: Lightweight variable labels}. \url{https://doi.org/10.32614/CRAN.package.tinylabels}
 
+\bibitem[\citeproctext]{ref-R-summarytools}
+Comtois, D. (2025). \emph{Summarytools: Tools to quickly and neatly summarize data}. \url{https://doi.org/10.32614/CRAN.package.summarytools}
+
+\bibitem[\citeproctext]{ref-R-faux}
+DeBruine, L. (2025). \emph{Faux: Simulation for factorial designs}. Zenodo. \url{https://doi.org/10.5281/zenodo.2669586}
+
 \bibitem[\citeproctext]{ref-R-labelled}
 Larmarange, J. (2025). \emph{Labelled: Manipulating labelled data}. Retrieved from \url{https://CRAN.R-project.org/package=labelled}
 
+\bibitem[\citeproctext]{ref-ozer2006}
+Ozer, D. J., \& Benet-Martínez, V. (2006). Personality and the prediction of consequential outcomes. \emph{Annual Review of Psychology}, \emph{57}(1), 401--421. \url{https://doi.org/10.1146/annurev.psych.57.102904.190127}
+
 \bibitem[\citeproctext]{ref-R-base}
 R Core Team. (2024). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\bibitem[\citeproctext]{ref-R-missMethods}
+Rockel, T. (2022). \emph{missMethods: Methods for missing data}. \url{https://doi.org/10.32614/CRAN.package.missMethods}
 
 \bibitem[\citeproctext]{ref-R-groundhog}
 Simonsohn, U., \& Gruson, H. (2025). \emph{Groundhog: Version-control for CRAN, GitHub, and GitLab packages}. Retrieved from \url{https://CRAN.R-project.org/package=groundhog}

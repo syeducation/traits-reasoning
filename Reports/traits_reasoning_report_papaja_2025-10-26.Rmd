@@ -33,7 +33,7 @@ abstract: |
 keywords          : "personality, traits, scientific reasoning, truth"
 wordcount         : "751"
 
-bibliography      : "r-references.bib"
+bibliography      : ["r-references.bib", "references.bib"]
 
 floatsintext      : yes
 linenumbers       : no
@@ -64,7 +64,6 @@ set.seed(1879)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
-
 ```{r data setup, include=FALSE}
 
 dat <- read.csv("../Data/traits_reasoning_data_2025-10-24.csv")
@@ -72,9 +71,9 @@ names(dat)
 
 ```
 
-Personality traits have been shown to be related to many aspects of life (Ozer & Benet-Martinez, 2006). But what about scientific reasoning? We don't really know how these are related, but it seems like finding out would be worthwhile. This is not just because we don't know--there are many questions for which we have no answers, and that is probably for a good reason. Not all questions are good or useful! Good to keep in mind. 
+Personality traits have been shown to be related to many aspects of life @ozer2006. But what about scientific reasoning? We don't really know how these are related, but it seems like finding out would be worthwhile. This is not just because we don't know--there are many questions for which we have no answers, and that is probably for a good reason. Not all questions are good or useful! Good to keep in mind.
 
-But here I think we are dealing with a good question. Personality traits correspond to relatively stable patterns of individual differences in thoughts, emotions, and behaviors. Variations in these individual differences have been linked to many life outcomes, including academic achievement. Scientifc reasoning is important not only for those participating in science, but also for society at large. Knowing more about how personality traits are related to scientific reasoning could help us better understand who tends to excel in this area, and thus could help align people's careers with their personalities, but also would open up new possibilities for how to tailor our approach to teaching scientific reasoning. 
+But here I think we are dealing with a good question. Personality traits correspond to relatively stable patterns of individual differences in thoughts, emotions, and behaviors. Variations in these individual differences have been linked to many life outcomes, including academic achievement. Scientifc reasoning is important not only for those participating in science, but also for society at large. Knowing more about how personality traits are related to scientific reasoning could help us better understand who tends to excel in this area, and thus could help align people's careers with their personalities, but also would open up new possibilities for how to tailor our approach to teaching scientific reasoning.
 
 ## The Present Study
 
@@ -82,8 +81,7 @@ The purpose of the present study was to examine how personality traits are relat
 
 # Method
 
-The current study was **NOT** preregistered. Data and code are available at <https://github.com/syeducation/traits-reasoning>.
-You can also access the data and code [by clicking on this text here](https://github.com/syeducation/traits-reasoning). 
+The current study was **NOT** preregistered. Data and code are available at <https://github.com/syeducation/traits-reasoning>. You can also access the data and code [by clicking on this text here](https://github.com/syeducation/traits-reasoning).
 
 ## Participants and Procedure
 
@@ -105,15 +103,16 @@ summarytools::freq(dat$usborn)
 usborn_percent <- (nrow(filter(dat, usborn == "Born in U.S."))/(nrow(dat)) * 100)
 
 ```
-The total sample in the current study consists of `r nrow(dat)` students enrolled in one of the three STEM-focused colleges at a large public university in the U.S. Midwest (*M* age = `r round(age_mean, digits = 2)`, *SD* = `r round(age_sd, digits = 2)`). Most of the participants (`r round(usborn_percent, digits = 2)`%) were born in the U.S. 
 
-Participants were recruited from a list of all first-year students in the three colleges who identified as racial/ethnic minorities. Eligible students were sent a survey link via email and compensated $25 for their participation. 
+The total sample in the current study consists of `r nrow(dat)` students enrolled in one of the three STEM-focused colleges at a large public university in the U.S. Midwest (*M* age = `r round(age_mean, digits = 2)`, *SD* = `r round(age_sd, digits = 2)`). Most of the participants (`r round(usborn_percent, digits = 2)`%) were born in the U.S.
+
+Participants were recruited from a list of all first-year students in the three colleges who identified as racial/ethnic minorities. Eligible students were sent a survey link via email and compensated \$25 for their participation.
 
 ## Measures
 
 ### Personality Traits.
 
-Participants completed the 100-item Big Five Aspect Scale (DeYoung et al., 2007), which assesses the big five traits as well as ten aspects. We collected these, but we aren't using them in the current study (despite the title of the project). 
+Participants completed the 100-item Big Five Aspect Scale (DeYoung et al., 2007), which assesses the big five traits as well as ten aspects. We collected these, but we aren't using them in the current study (despite the title of the project).
 
 ### Scientific Reasoning.
 
@@ -214,7 +213,7 @@ True or False? These questions are equally good for measuring how consumers feel
 
 ```
 
-Participants completed an 11-item assessment of scientific reasoning (Drummond & Fischhoff, 2017), in which they were asked to read a description of a scientific activity and then answer True or False to a question about that activity (Cronbach's alpha = `r round(srs_alpha, digits = 2)`). 
+Participants completed an 11-item assessment of scientific reasoning (Drummond & Fischhoff, 2017), in which they were asked to read a description of a scientific activity and then answer True or False to a question about that activity (Cronbach's alpha = `r round(srs_alpha, digits = 2)`).
 
 ## Data analysis
 
@@ -225,7 +224,6 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 Overall, participant did well on the scientific reasoning task, averaging more correct than incorrect answers, *M* correct = `r round(srs_mean, digits = 2)`, (*SD* = `r round(srs_sd, digits = 2)`). However, these results are best examined via tables and figures, so let's look at some.
 
 Here is a table of each item and its rate of success:
-
 
 ```{r descriptive table, echo=FALSE}
 
@@ -256,11 +254,9 @@ apa_table(srs_table,
 
 ```
 
+It looks like item 11 was the most difficult:
 
-It looks like item 11 was the most difficult: 
-
->`r var_label(dat$srs_11_scored)`
-
+> `r var_label(dat$srs_11_scored)`
 
 On average, people did pretty well, but from the standard deviation for the scale as well as the means and standard deviations of the individual items you can see there is quite a bit of variability. It is always important to plot your data, so let's take a look at the distribution!
 
@@ -277,9 +273,10 @@ ggplot(dat, aes(srs)) +
        y = "Frequency (Count)")
 
 ```
-*Figure 1*. Histogram of scientific reasoning scale. 
 
-That's nice, but perhaps a density plot, separately for those born in the U.S. and those not. 
+*Figure 1*. Histogram of scientific reasoning scale.
+
+That's nice, but perhaps a density plot, separately for those born in the U.S. and those not.
 
 ```{r usborn density}
 
@@ -290,7 +287,9 @@ ggplot(dat, aes(x = srs, fill = usborn)) +
   theme_apa()
 
 ```
-*Figure 2*. Density plot of scientific reasoning by immigrant status. 
+
+*Figure 2*. Density plot of scientific reasoning by immigrant status.
+
 ```{r usborn t-test, echo=FALSE}
 
 # comparing u.s. born and not u.s. born on scientific reasoning
@@ -304,7 +303,9 @@ df_usborn <- t_test_usborn$parameter
 p_usborn <- t_test_usborn$p.value
 
 ```
+
 Next we examined whether immigrant status was related to differences in scientific reasoning. Results from a Welch's independent samples *t*-test indicated no significant differences between the two groups, *t*(`r df_usborn`) = `r t_usborn`, *p* = `r p_usborn`. See Table 2 for means and standard deviations by group.
+
 ```{r usborn table, echo=FALSE}
 
 usborn_srs_means <- dat %>% dplyr::group_by(usborn) %>% 
@@ -319,7 +320,9 @@ apa_table(usborn_srs_means,
           note = "The groups did not statistically differ")
 
 ```
+
 Tables are great and all, but it is also nice to see the data in a figure. Here is one:
+
 ```{r usborn figure, echo=FALSE}
 
 # creating a nice violin plot
@@ -336,13 +339,14 @@ ggplot(dat, aes(x = usborn, y = srs)) +
   theme_classic()
 
 ```
-*Figure 3*. A beautiful display of data 
+
+*Figure 3*. A beautiful display of data
 
 # Discussion
 
-The purpose of the present study was to examine how personality traits are related to scientific reasoning. Overall, it seems that people reason about science, but maybe not as much as we would have hope.We don't actually know how personality traits are related to scientific reasoning, because we did not assess that. That is a limitation of the study that should guide future work. 
+The purpose of the present study was to examine how personality traits are related to scientific reasoning. Overall, it seems that people reason about science, but maybe not as much as we would have hope.We don't actually know how personality traits are related to scientific reasoning, because we did not assess that. That is a limitation of the study that should guide future work.
 
-In sum, this was a very mediocre study. We will try better in the future. 
+In sum, this was a very mediocre study. We will try better in the future.
 
 \newpage
 
