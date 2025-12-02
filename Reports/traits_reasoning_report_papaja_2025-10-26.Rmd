@@ -304,7 +304,7 @@ p_usborn <- t_test_usborn$p.value
 
 ```
 
-Next we examined whether immigrant status was related to differences in scientific reasoning. Results from a Welch's independent samples *t*-test indicated no significant differences between the two groups, *t*(`r df_usborn`) = `r t_usborn`, *p* = `r p_usborn`. See Table 2 for means and standard deviations by group.
+Next we examined whether immigrant status was related to differences in scientific reasoning. Results from a Welch's independent samples *t*-test indicated no significant differences between the two groups, *t*(`r df_usborn`) = `r t_usborn`, *p* = `r printp(p_usborn)`. See Table 2 for means and standard deviations by group.
 
 ```{r usborn table, echo=FALSE}
 
