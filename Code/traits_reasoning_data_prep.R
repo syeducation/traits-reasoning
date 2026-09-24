@@ -173,29 +173,39 @@ dat %>% select(starts_with("srs")) %>% names()
 
 # rename with leading zeros
 
+dat <- dat %>%  rename(srs_01 = srs_1,
+                       srs_02 = srs_2,
+                       srs_03 = srs_3,
+                       srs_04 = srs_4,
+                       srs_05 = srs_5,
+                       srs_06 = srs_6,
+                       srs_07 = srs_7,
+                       srs_08 = srs_8,
+                       srs_09 = srs_9)
 
+dat %>% select(starts_with("srs")) %>% names()
 
 # recode so that 1 always means correct response and 0 incorrect
 
-dat <- dat %>% mutate(srs_1_scored = recode(srs_1, `1` = 1, `2` = 0),
-                      srs_2_scored = recode(srs_2, `1` = 0, `2` = 1),
-                      srs_3_scored = recode(srs_3, `1` = 1, `2` = 0),
-                      srs_4_scored = recode(srs_4, `1` = 0, `2` = 1),
-                      srs_5_scored = recode(srs_5, `1` = 0, `2` = 1),
-                      srs_6_scored = recode(srs_6, `1` = 0, `2` = 1),
-                      srs_7_scored = recode(srs_7, `1` = 1, `2` = 0),
-                      srs_8_scored = recode(srs_8, `1` = 0, `2` = 1),
-                      srs_9_scored = recode(srs_9, `1` = 0, `2` = 1),
+dat <- dat %>% mutate(srs_01_scored = recode(srs_01, `1` = 1, `2` = 0),
+                      srs_02_scored = recode(srs_02, `1` = 0, `2` = 1),
+                      srs_03_scored = recode(srs_03, `1` = 1, `2` = 0),
+                      srs_04_scored = recode(srs_04, `1` = 0, `2` = 1),
+                      srs_05_scored = recode(srs_05, `1` = 0, `2` = 1),
+                      srs_06_scored = recode(srs_06, `1` = 0, `2` = 1),
+                      srs_07_scored = recode(srs_07, `1` = 1, `2` = 0),
+                      srs_08_scored = recode(srs_08, `1` = 0, `2` = 1),
+                      srs_09_scored = recode(srs_09, `1` = 0, `2` = 1),
                       srs_10_scored = recode(srs_10, `1` = 0, `2` = 1),
                       srs_11_scored = recode(srs_11, `1` = 0, `2` = 1))
 
 # check 
 
-cor.test(dat$srs_1, dat$srs_1_scored)
+cor.test(dat$srs_01, dat$srs_01_scored)
 
 # creating variables
 
-dat <- dat %>% dplyr::mutate(srs = rowMeans(pick(srs_1_scored:srs_11_scored), na.rm = TRUE))
+dat <- dat %>% dplyr::mutate(srs = rowMeans(pick(srs_01_scored:srs_11_scored), na.rm = TRUE))
 
 # give that new variable a label
 
@@ -205,6 +215,78 @@ labelled::var_label(dat$srs) <- "Scientific Reasoning Scale - Mean"
 
 psych::describe(dat$srs)
 dat$srs
+
+# personality traits - C-I and O-I
+
+dat$bfas_1
+
+# Industriousness: 3, 13r, 23r, 33r, 43, 53r, 63, 73, 83r, 93r
+
+dat %>% select(ends_with("3")) %>% var_label()
+
+dat <- dat %>% mutate(bfas_13r = (6-bfas_13),
+                      bfas_23r = (6-bfas_23),
+                      bfas_33r = (6-bfas_33),
+                      bfas_53r = (6-bfas_53),
+                      bfas_83r = (6-bfas_83),
+                      bfas_93r = (6-bfas_93))
+
+cor.test(dat$bfas_13, dat$bfas_13r)
+
+dat <- dat %>% 
+  dplyr::mutate(bfas_indust = 
+                  rowMeans(pick(bfas_3,
+                                bfas_13r,
+                                bfas_23r,
+                                bfas_33r,
+                                bfas_43,
+                                bfas_53r,
+                                bfas_63,
+                                bfas_73,
+                                bfas_83r,
+                                bfas_93r), na.rm = TRUE))
+
+# give that new variable a label
+
+labelled::var_label(dat$bfas_indust) <- "BFAS Industriousness - Mean"
+
+# check that all looks ok
+
+psych::describe(dat$bfas_indust)
+dat$bfas_indust
+
+# Intellect: 5, 15r, 25, 35, 45r, 55r, 65, 75, 85r, 95
+
+dat %>% select(starts_with("bfas") & ends_with("5")) %>% var_label()
+
+dat <- dat %>% mutate(bfas_15r = (6-bfas_15),
+                      bfas_45r = (6-bfas_45),
+                      bfas_55r = (6-bfas_55),
+                      bfas_85r = (6-bfas_85))
+
+cor.test(dat$bfas_15, dat$bfas_15r)
+
+dat <- dat %>% 
+  dplyr::mutate(bfas_intellect = 
+                  rowMeans(pick(bfas_5,
+                                bfas_15r,
+                                bfas_25,
+                                bfas_35,
+                                bfas_45,
+                                bfas_55r,
+                                bfas_65,
+                                bfas_75,
+                                bfas_85r,
+                                bfas_95), na.rm = TRUE))
+
+# give that new variable a label
+
+labelled::var_label(dat$bfas_intellect) <- "BFAS Intellect - Mean"
+
+# check that all looks ok
+
+psych::describe(dat$bfas_intellect)
+dat$bfas_intellect
 
 # pivot longer - tidy data
 
